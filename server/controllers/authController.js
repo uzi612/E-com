@@ -138,6 +138,7 @@ const getMe = async (req, res, next) => {
 };
 
 module.exports = {
+  generateToken,
   registerUser,
   loginUser,
   getMe,

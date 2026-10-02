@@ -39,18 +39,21 @@ async function testAuthUnit() {
   console.log("\n[Test 3] Testing admin middleware...");
   let adminPassed = false;
   const mockReqAdmin = { user: { role: "admin" } };
-  const mockRes = { status: (code) => ({ json: (data) => data }) };
+  const mockRes = {
+    status: (code) => ({
+      json: (data) => {
+        if (code === 403) customerBlocked = true;
+        return data;
+      },
+    }),
+  };
   adminOnly(mockReqAdmin, mockRes, () => {
     adminPassed = true;
   });
 
   let customerBlocked = false;
   const mockReqCustomer = { user: { role: "customer" } };
-  adminOnly(mockReqCustomer, mockRes, (err) => {
-    if (err && err.message.includes("Access denied")) {
-      customerBlocked = true;
-    }
-  });
+  adminOnly(mockReqCustomer, mockRes, () => {});
 
   if (adminPassed && customerBlocked) {
     console.log("✓ Admin role guard passed!");

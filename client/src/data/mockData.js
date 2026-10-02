@@ -114,3 +114,7 @@ export const initialProducts = [
     stock: 0, // Out of stock demo
   },
 ];
+
+// Aliases for admin fallback imports
+export const mockCategories = initialCategories;
+export const mockProducts = initialProducts;
