@@ -205,6 +205,7 @@ For in-depth technical details, consult the documentation in `/docs`:
 3. [API Specification (`docs/API_SPECIFICATION.md`)](docs/API_SPECIFICATION.md) - Full endpoint reference with sample request/response JSON payloads.
 4. [Frontend Specification (`docs/FRONTEND_SPECIFICATION.md`)](docs/FRONTEND_SPECIFICATION.md) - Component hierarchy, route guards, and state management.
 5. [Project Roadmap (`docs/PROJECT_ROADMAP.md`)](docs/PROJECT_ROADMAP.md) - Phased implementation guide and verification checklists.
+6. [Team Task Assignments (`docs/TASK_ASSIGNMENTS.md`)](docs/TASK_ASSIGNMENTS.md) - Contributor roles, tasks breakdown, and assigned GitHub issues.
 
 ---
 
