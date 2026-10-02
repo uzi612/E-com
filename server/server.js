@@ -4,9 +4,6 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
-// Routes
-const authRoutes = require("./routes/authRoutes");
-
 // Load environment variables
 dotenv.config();
 
@@ -36,8 +33,24 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// Import Routes
+const authRoutes = require("./routes/authRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
+const productRoutes = require("./routes/productRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const { protect } = require("./middleware/authMiddleware");
+const { adminOnly } = require("./middleware/adminMiddleware");
+const { getAllOrders, updateOrderStatus } = require("./controllers/orderController");
+
 // Mount Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
+
+// Admin dedicated routes matching API Specification (e.g. GET /api/admin/orders, PATCH /api/admin/orders/:id/status)
+app.get("/api/admin/orders", protect, adminOnly, getAllOrders);
+app.patch("/api/admin/orders/:id/status", protect, adminOnly, updateOrderStatus);
 
 // Error Handling Middlewares
 app.use(notFound);
