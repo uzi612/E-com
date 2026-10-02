@@ -5,6 +5,8 @@ import { CartProvider } from './context/CartContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Toast from './components/common/Toast';
+import ProtectedRoute from './components/layout/ProtectedRoute';
+import AdminRoute from './components/layout/AdminRoute';
 
 // Storefront Pages
 import Home from './pages/Home';
@@ -15,7 +17,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import MyOrders from './pages/MyOrders';
+
+// Admin Pages
 import AdminDashboard from './pages/AdminDashboard';
+import AdminCategories from './pages/AdminCategories';
+import AdminProducts from './pages/AdminProducts';
+import AdminOrders from './pages/AdminOrders';
 
 function App() {
   return (
@@ -34,12 +41,57 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
 
-                {/* Checkout & Customer Orders (Issue #4 integration) */}
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/my-orders" element={<MyOrders />} />
+                {/* Customer Protected Routes */}
+                <Route
+                  path="/checkout"
+                  element={
+                    <ProtectedRoute>
+                      <Checkout />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/my-orders"
+                  element={
+                    <ProtectedRoute>
+                      <MyOrders />
+                    </ProtectedRoute>
+                  }
+                />
 
-                {/* Admin Management (Issue #4 integration) */}
-                <Route path="/admin" element={<AdminDashboard />} />
+                {/* Admin Protected Routes */}
+                <Route
+                  path="/admin"
+                  element={
+                    <AdminRoute>
+                      <AdminDashboard />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/categories"
+                  element={
+                    <AdminRoute>
+                      <AdminCategories />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/products"
+                  element={
+                    <AdminRoute>
+                      <AdminProducts />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/orders"
+                  element={
+                    <AdminRoute>
+                      <AdminOrders />
+                    </AdminRoute>
+                  }
+                />
 
                 {/* Fallback */}
                 <Route path="*" element={<Navigate to="/" replace />} />

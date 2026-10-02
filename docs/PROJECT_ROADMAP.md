@@ -75,12 +75,12 @@ Phase 7: End-to-End Verification, Seeding & Polish
 ---
 
 ## Phase 5: Client Storefront Development
-- [ ] Initialize React + Vite project in `/client`.
-- [ ] Configure Tailwind CSS and color theme tokens.
-- [ ] Setup Axios client with `baseURL` and Bearer token interceptor.
-- [ ] Implement `AuthContext` (JWT token retention in `localStorage`) and `CartContext`.
-- [ ] Build reusable UI components: `Navbar`, `Footer`, `Button`, `Modal`, `Toast`.
-- [ ] Build Storefront pages:
+- [x] Initialize React + Vite project in `/client`.
+- [x] Configure Tailwind CSS and color theme tokens.
+- [x] Setup Axios client with `baseURL` and Bearer token interceptor.
+- [x] Implement `AuthContext` (JWT token retention in `localStorage`) and `CartContext`.
+- [x] Build reusable UI components: `Navbar`, `Footer`, `Button`, `Modal`, `Toast`.
+- [x] Build Storefront pages:
   - `Home.jsx`
   - `Products.jsx` (with search and category chip filtering)
   - `ProductDetail.jsx` (with stock counter)
@@ -92,15 +92,15 @@ Phase 7: End-to-End Verification, Seeding & Polish
 ---
 
 ## Phase 6: Admin Dashboard UI
-- [ ] Build `AdminSidebar.jsx` and admin layout.
-- [ ] Build Category management view (Table, Create/Edit modal, Delete confirmation).
-- [ ] Build Product management view (Table with stock badges, Image preview modal).
-- [ ] Build Order management view (Customer info, Item listing, Status dropdown changer).
+- [x] Build `AdminSidebar.jsx` and admin layout.
+- [x] Build Category management view (Table, Create/Edit modal, Delete confirmation).
+- [x] Build Product management view (Table with stock badges, Image preview modal).
+- [x] Build Order management view (Customer info, Item listing, Status dropdown changer).
 
 ---
 
 ## Phase 7: Verification & Final Polish
-- [ ] Run full end-to-end user story walkthrough:
+- [x] Run full end-to-end user story walkthrough:
   1. Login as Admin.
   2. Create "Electronics" category and add "Smartphone".
   3. Log out and register new customer.
@@ -109,4 +109,4 @@ Phase 7: End-to-End Verification, Seeding & Polish
   6. Verify stock decremented in DB.
   7. Check order under "My Orders".
   8. Login as Admin, inspect order and change status to "Delivered".
-- [ ] Ensure all responsive views (mobile, tablet, desktop) are smooth and clean.
+- [x] Ensure all responsive views (mobile, tablet, desktop) are smooth and clean.
